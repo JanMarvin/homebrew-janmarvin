@@ -37,7 +37,7 @@ class Gitg < Formula
   depends_on "libdazzle"
   depends_on "libgee"
   depends_on "libgit2"
-  depends_on "libgit2-glib"
+  depends_on "libgit2-glib-git"
   depends_on "libpeas"
   depends_on "libsecret"
   depends_on "libhandy"
