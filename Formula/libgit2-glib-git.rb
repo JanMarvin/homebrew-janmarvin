@@ -1,4 +1,4 @@
-class Libgit2Glib < Formula
+class Libgit2GlibGit < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
   version "1.1.0"

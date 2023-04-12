@@ -1,4 +1,4 @@
-class Gitg < Formula
+class GitgGit < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://gitlab.gnome.org/GNOME/gitg/-/archive/master/gitg-master.zip"
