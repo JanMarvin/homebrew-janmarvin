@@ -1,5 +1,10 @@
 # homebrew
 
+```
 brew tap janmarvin/janmarvin
-brew install gitg-git
+```
 
+To install the current (2023-04-12) git head from gitg:
+```
+brew install gitg-git
+```
