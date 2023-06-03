@@ -3,7 +3,7 @@ class Libgit2GlibGit < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   version "1.1.0"
   url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/master/libgit2-glib-master.zip" 
-  sha256 "ed7930a4c52fe5876a28ba396d917060704294631d5bf41439a45103e7367de8"
+  sha256 "9109d40aa606270a9615ce49a641da6c8941308f007c005d68d2feb0b97688dd"
   license "LGPL-2.1-only"
   revision 4
   head "https://github.com/GNOME/libgit2-glib.git", branch: "master"
