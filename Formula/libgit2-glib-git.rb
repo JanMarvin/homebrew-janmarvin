@@ -27,23 +27,24 @@ class Libgit2GlibGit < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3" => :build
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "libgit2"
 
+  on_macos do
+    depends_on "gettext"
+  end
+
   def install
-    mkdir "build" do
-      ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
-      system "meson", *std_meson_args,
-                      "-Dpython=false",
-                      "-Dvapi=true",
-                      ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-      libexec.install Dir["examples/*"]
-    end
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
+    system "meson", "setup", "build", *std_meson_args,
+                                      "-Dpython=false",
+                                      "-Dvapi=true"
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+    libexec.install (buildpath/"build/examples").children
   end
 
   test do
