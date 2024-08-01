@@ -14,8 +14,8 @@ brew install gitg-git
 
 ```
 cd /tmp
-curl -OL https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz
-shasum -256 gitg-44.tar.xz
+curl -OL https://gitlab.gnome.org/GNOME/gitg/-/archive/master/gitg-master.zip
+shasum -a 256 gitg-master.zip
 curl -OL https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/master/libgit2-glib-master.zip
 shasum -a 256 libgit2-glib-master.zip
 ```

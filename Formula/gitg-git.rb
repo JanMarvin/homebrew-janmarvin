@@ -1,15 +1,14 @@
 class GitgGit < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url "https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz"
-  #url "https://gitlab.gnome.org/GNOME/gitg/-/archive/master/gitg-master.zip"
-  sha256 "342a31684dab9671cd341bd3e3ce665adcee0460c2a081ddc493cdbc03132530"
+  url "https://gitlab.gnome.org/GNOME/gitg/-/archive/master/gitg-master.zip"
+  sha256 "aebbf9ad51c82131b8b617a2dc52121a93fadc6d1dfe6bc8524ef5c5f9582404"
   license "GPL-2.0-or-later"
   version "master"
 
   livecheck do
     url :stable
-    regex(/gitg[._-]v?(\d+(?:\.\d+)*)\.t/i)
+    regex(/gitg[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   # bottle do
