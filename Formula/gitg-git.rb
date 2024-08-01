@@ -1,9 +1,9 @@
 class GitgGit < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
-  url https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz
+  url "https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz"
   #url "https://gitlab.gnome.org/GNOME/gitg/-/archive/master/gitg-master.zip"
-  sha256 "5b0e99ab3e7b94b0daa98ca8041d5ec9280ee0a2c28338a5506a968ac52e2354"
+  sha256 "342a31684dab9671cd341bd3e3ce665adcee0460c2a081ddc493cdbc03132530"
   license "GPL-2.0-or-later"
   version "master"
 

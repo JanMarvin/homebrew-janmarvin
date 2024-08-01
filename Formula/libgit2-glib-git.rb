@@ -1,9 +1,9 @@
 class Libgit2GlibGit < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
-  version "1.1.0"
-  url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/master/libgit2-glib-master.zip" 
-  sha256 "9109d40aa606270a9615ce49a641da6c8941308f007c005d68d2feb0b97688dd"
+  version "1.2.0"
+  url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/master/libgit2-glib-master.zip"
+  sha256 "cdeeda9cd428202187ee844066be417f6c74dc4eb7ba261261156e08bb7afb55"
   license "LGPL-2.1-only"
   revision 5
   head "https://github.com/GNOME/libgit2-glib.git", branch: "master"
