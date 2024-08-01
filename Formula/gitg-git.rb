@@ -44,8 +44,11 @@ class GitgGit < Formula
   depends_on "libsecret"
 
   def install
+    # Work-around for build issue with Xcode 15.3: https://gitlab.gnome.org/GNOME/gitg/-/issues/465
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     ENV["DESTDIR"] = "/"
-    system "meson", *std_meson_args, "build", "-Dpython=false"
+    system "meson", "setup", "build", "-Dpython=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
