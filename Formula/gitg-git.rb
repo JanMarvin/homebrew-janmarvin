@@ -12,16 +12,16 @@ class GitgGit < Formula
   end
 
   # bottle do
-  #   sha256 arm64_ventura:  "f2ddb91d679e3cce264f52960a7e30e2a5267dbcd85e64b02c8706cfd3a5479c"
-  #   sha256 arm64_monterey: "f68e86061156ba405410156aa3e4066015cdb9227162d68f2581664a6a7b4ba9"
-  #   sha256 arm64_big_sur:  "a2bf23c4cb3fdfdcdb05f250b5bf62d33bc60d01072f182f1209a40b604674df"
-  #   sha256 ventura:        "5309cb3218437eb04e8f635a281f2e027cce2132fc172625da6647e2b95ab76d"
-  #   sha256 monterey:       "70d587c967403aafdff322736896ad013be0b1bc0a4a9fbe60329913a4f07fad"
-  #   sha256 big_sur:        "45de0fdc63fdd84c90e4ccfcbd99e7f2338b5d5510f7b8364fc32b49d6335528"
-  #   sha256 catalina:       "6243ae261e1994f5b72c79bb469c23270c67e25a1e0f1a4a1fa39f1f248fd3f4"
-  #   sha256 x86_64_linux:   "e25650fea8b7537a43e868afc3f0e1ac7aa1ed8153b655556bafe6fbdf883132"
+  #   sha256 arm64_sonoma:   "1caffaeae8c0c99e46b34624513085e7c8fbe27c38635277f66159b9edf517d3"
+  #   sha256 arm64_ventura:  "c2973e35ca94c61673fa4f9861f67278a021735c11afb57d1b59035efe0c21ba"
+  #   sha256 arm64_monterey: "2cf313c7b67b8f4e8e0656c1273872fa2786d894c84ed8bc6f608b1f543c6814"
+  #   sha256 sonoma:         "c0a70b70902f255644077ee0fe21161a1cd9b3f118872a47eaecacc187c99ccd"
+  #   sha256 ventura:        "c8fa8f55f91d1c49776752e57e201ac8769687bf0f7438cdedc34c84ff031aad"
+  #   sha256 monterey:       "45b643eae44497030d2bf25da3f824e8a64e28fdf288209efd4a57b626dc6fbd"
+  #   sha256 x86_64_linux:   "0cbc0e25ab157fe48820366df24a9ea57d105ece188f62d9bb27110198977d96"
   # end
 
+  depends_on "gettext" => :build # for `msgfmt`
   depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -29,6 +29,7 @@ class GitgGit < Formula
   depends_on "vala" => :build
   depends_on "adwaita-icon-theme"
   depends_on "gobject-introspection"
+  depends_on "gpgme"
   depends_on "gspell"
   depends_on "gtk+3"
   depends_on "gtksourceview4"
@@ -36,12 +37,11 @@ class GitgGit < Formula
   depends_on "json-glib"
   depends_on "libdazzle"
   depends_on "libgee"
-  depends_on "libgit2"
   depends_on "janmarvin/janmarvin/libgit2-glib-git"
-  depends_on "libpeas"
-  depends_on "libsecret"
+  depends_on "libgit2@1.7"
   depends_on "libhandy"
-  depends_on "gpgme"
+  depends_on "libpeas@1"
+  depends_on "libsecret"
 
   def install
     ENV["DESTDIR"] = "/"
@@ -76,13 +76,15 @@ class GitgGit < Formula
     gettext = Formula["gettext"]
     glib = Formula["glib"]
     gobject_introspection = Formula["gobject-introspection"]
+    gpgme = Formula["gpgme"]
     gtkx3 = Formula["gtk+3"]
     harfbuzz = Formula["harfbuzz"]
     libepoxy = Formula["libepoxy"]
     libffi = Formula["libffi"]
     libgee = Formula["libgee"]
-    libgit2 = Formula["libgit2"]
+    libgit2 = Formula["libgit2@1.7"]
     libgit2_glib = Formula["libgit2-glib"]
+    libhandy = Formula["libhandy"]
     libpng = Formula["libpng"]
     pango = Formula["pango"]
     pixman = Formula["pixman"]
@@ -97,14 +99,16 @@ class GitgGit < Formula
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
       -I#{gobject_introspection.opt_include}/gobject-introspection-1.0
+      -I#{gpgme.opt_include}
       -I#{gtkx3.opt_include}/gtk-3.0
       -I#{harfbuzz.opt_include}/harfbuzz
       -I#{include}/libgitg-1.0
       -I#{libepoxy.opt_include}
       -I#{libgee.opt_include}/gee-0.8
       -I#{libffi.opt_lib}/libffi-3.0.13/include
-      -I#{libgit2}/include
+      -I#{libgit2.opt_include}
       -I#{libgit2_glib.opt_include}/libgit2-glib-1.0
+      -I#{libhandy.opt_include}/libhandy-1
       -I#{libpng.opt_include}/libpng16
       -I#{pango.opt_include}/pango-1.0
       -I#{pixman.opt_include}/pixman-1
@@ -116,10 +120,12 @@ class GitgGit < Formula
       -L#{gettext.opt_lib}
       -L#{glib.opt_lib}
       -L#{gobject_introspection.opt_lib}
+      -L#{gpgme.opt_lib}
       -L#{gtkx3.opt_lib}
       -L#{libgee.opt_lib}
       -L#{libgit2.opt_lib}
       -L#{libgit2_glib.opt_lib}
+      -L#{libhandy.opt_lib}
       -L#{lib}
       -L#{pango.opt_lib}
       -latk-1.0
@@ -135,8 +141,10 @@ class GitgGit < Formula
       -lglib-2.0
       -lgmodule-2.0
       -lgobject-2.0
+      -lgpgme
       -lgthread-2.0
       -lgtk-3
+      -lhandy-1
       -lpango-1.0
       -lpangocairo-1.0
     ]
