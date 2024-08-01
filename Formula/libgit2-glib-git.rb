@@ -31,7 +31,7 @@ class Libgit2GlibGit < Formula
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
-  depends_on "libgit2"
+  depends_on "libgit2@1.7"
 
   on_macos do
     depends_on "gettext"
