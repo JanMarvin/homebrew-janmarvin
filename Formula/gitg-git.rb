@@ -5,6 +5,7 @@ class GitgGit < Formula
   sha256 "d99e92f9ede32c2d6c164a9218cd3d23a35ae120fd8b42b86e59068c64718f1b"
   license "GPL-2.0-or-later"
   version "master"
+  revision 2
 
   livecheck do
     url :stable

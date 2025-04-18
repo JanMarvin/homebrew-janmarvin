@@ -3,9 +3,9 @@ class Libgit2GlibGit < Formula
   homepage "https://github.com/GNOME/libgit2-glib"
   version "1.2.0"
   url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/master/libgit2-glib-master.zip"
-  sha256 "cdeeda9cd428202187ee844066be417f6c74dc4eb7ba261261156e08bb7afb55"
+  sha256 "4e2cefa8b84fe1f39341a8a41f99b1bc1479a75f1f8dd8768325bd442fe3f414"
   license "LGPL-2.1-only"
-  revision 5
+  revision 6
   head "https://github.com/GNOME/libgit2-glib.git", branch: "master"
 
   livecheck do
