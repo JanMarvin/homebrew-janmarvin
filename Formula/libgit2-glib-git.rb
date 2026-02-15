@@ -1,12 +1,14 @@
 class Libgit2GlibGit < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://github.com/GNOME/libgit2-glib"
-  version "1.2.0"
+  version "1.2.1"
   url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/master/libgit2-glib-master.zip"
   sha256 "4e2cefa8b84fe1f39341a8a41f99b1bc1479a75f1f8dd8768325bd442fe3f414"
   license "LGPL-2.1-only"
-  revision 6
+  revision 7
   head "https://github.com/GNOME/libgit2-glib.git", branch: "master"
+
+  keg_only "it conflicts with the standard libgit2-glib formula"
 
   livecheck do
     url :stable
